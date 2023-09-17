@@ -33,7 +33,7 @@ public class FirstTest {
 			WebElement promoButton = driver.findElement(promoLocator);
 			boolean isExpanded = Boolean.valueOf(promoButton.getAttribute("aria-expanded"));
 			if (isExpanded) {
-				driver.findElement(By.xpath("//*[contains(@class, 'promoDrawer__handlebar__icon')]")).click();
+				driver.findElement(By.xpath("//button[@aria-label='close the promo drawer']")).click();
 			}
 			Thread.sleep(3000);
 
