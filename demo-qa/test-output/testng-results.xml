@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-15T20:09:30 EDT" name="Default suite" finished-at="2023-09-15T20:09:36 EDT" duration-ms="6396">
+    <groups>
+    </groups>
+    <test started-at="2023-09-15T20:09:30 EDT" name="Default test" finished-at="2023-09-15T20:09:36 EDT" duration-ms="6396">
+      <class name="demo_tests.TooltipTest">
+        <test-method signature="runTest()[pri:0, instance:demo_tests.TooltipTest@38704ff0]" started-at="2023-09-15T20:09:30 EDT" name="runTest" finished-at="2023-09-15T20:09:36 EDT" duration-ms="6359" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runTest -->
+      </class> <!-- demo_tests.TooltipTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
