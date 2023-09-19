@@ -5,16 +5,28 @@ import java.time.LocalTime;
 public class Alarm {
 
 	public static void main(String[] args) {
-		printAlarm(4, 45, true);
+		printAlarm(3, 45, true);
 	}
 
 	private static void printAlarm(int hour, int minute, boolean isMorning) {
+		String arriveHalf = " PM";
+		String leaveHalf = " PM";
+		String wakeHalf = " PM";
+
 		LocalTime arriveTime = findArriveTime(hour, minute, isMorning);
 		LocalTime leaveTime = getLeaveTime(arriveTime);
 		LocalTime wakeTime = getWakeTime(leaveTime);
-		System.out.println("Arrive: " + arriveTime);
-		System.out.println("Leave: " + leaveTime);
-		System.out.println("Wake: " + wakeTime);
+
+		if (arriveTime.getHour() < 12)
+			arriveHalf = " AM";
+		if (leaveTime.getHour() < 12)
+			leaveHalf = " AM";
+		if (wakeTime.getHour() < 12)
+			wakeHalf = " AM";
+
+		System.out.println("Arrive: " + arriveTime + arriveHalf);
+		System.out.println("Leave: " + leaveTime + leaveHalf);
+		System.out.println("Wake: " + wakeTime + wakeHalf);
 
 	}
 
