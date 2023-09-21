@@ -84,4 +84,15 @@ public class SeleniumServices {
 		driver.switchTo().defaultContent();
 	}
 
+	public void jsZoom(int percent) {
+		String script = String.format("document.body.style.zoom='%d%%'", percent);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript(script);
+	}
+
+	public void jsClick(By locator) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", getVisibleElement(locator));
+	}
+
 }
