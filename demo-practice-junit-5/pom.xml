@@ -9,7 +9,7 @@
 	<properties>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<selenium.version>4.12.1</selenium.version>
+		<selenium.version>4.13.0</selenium.version>
 		<rest-assured.version>5.3.2</rest-assured.version>
 
 	</properties>
@@ -90,6 +90,13 @@
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>${rest-assured.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>2.0.9</version>
 			<scope>test</scope>
 		</dependency>
 
