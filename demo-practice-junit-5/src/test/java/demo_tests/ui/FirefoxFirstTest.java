@@ -18,7 +18,7 @@ public class FirefoxFirstTest {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 		driver.get("https://www.google.com/");
-		driver.findElement(By.name("q")).sendKeys("washington" + Keys.ENTER);
+		driver.findElement(By.name("q")).sendKeys("mens shoes" + Keys.ENTER);
 		SeleniumServices ss = new SeleniumServices();
 		ss.pause(3);
 		ss.alwaysQuit(driver);
