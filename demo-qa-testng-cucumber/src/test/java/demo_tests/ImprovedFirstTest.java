@@ -16,22 +16,22 @@ import utilities.SeleniumServices;
 public class ImprovedFirstTest {
 
 	WebDriver driver;
-	SeleniumServices sss;
+	SeleniumServices ss;
 
 	@Test
 	public void runTest() {
 		String url = "https://www.gap.com/";
 		driver.get(url);
-		sss.justWait().until(ExpectedConditions.urlToBe(url));
-		sss.pause(1);
+		ss.justWait().until(ExpectedConditions.urlToBe(url));
+		ss.pause(1);
 
 		By promoLocator = By.id("promo-drawer-button");
-		WebElement promoButton = sss.getVisibleElement(promoLocator);
+		WebElement promoButton = ss.getVisibleElement(promoLocator);
 
 		boolean isExpanded = Boolean.valueOf(promoButton.getAttribute("aria-expanded"));
 		if (isExpanded)
-			sss.click(By.xpath("//button[@aria-label='close the promo drawer']"));
-		sss.pause(2);
+			ss.click(By.xpath("//button[@aria-label='close the promo drawer']"));
+		ss.pause(2);
 
 		System.out.println("Yay!");
 	}
@@ -41,7 +41,7 @@ public class ImprovedFirstTest {
 		driver = DriverFactory.getDriver("chrome");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
-		sss = new SeleniumServices(driver);
+		ss = new SeleniumServices(driver);
 	}
 
 	@AfterMethod
