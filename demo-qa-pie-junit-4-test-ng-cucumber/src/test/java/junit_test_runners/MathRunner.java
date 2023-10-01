@@ -5,11 +5,12 @@ import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
 
-import utilities.Configurations;
+import demo_junit_tests.DemoAppTest;
+import junit_categories.Math;
 
 @RunWith(Categories.class)
-@IncludeCategory(FirefoxTest.class)
-@SuiteClasses(Configurations.class)
-public class FirefoxRunner {
+@IncludeCategory({ Math.class })
+@SuiteClasses(value = { DemoAppTest.class })
+public class MathRunner {
 
 }
