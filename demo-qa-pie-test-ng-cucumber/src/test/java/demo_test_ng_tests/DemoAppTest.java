@@ -1,6 +1,6 @@
 package demo_test_ng_tests;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 import org.testng.annotations.Test;
 

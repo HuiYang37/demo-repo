@@ -6,7 +6,7 @@ public class PropertiesReader extends Reader {
 
 	public static String getURL() {
 		load(filePath);
-		return p.getProperty("url");
+		return get("url");
 	}
 
 }

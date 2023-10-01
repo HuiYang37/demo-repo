@@ -18,4 +18,16 @@ public class Reader {
 		}
 	}
 
+	protected static String get(String key) {
+		String value = null;
+		try {
+			if (!p.containsKey(key))
+				throw new Exception("This properties file contains no such key.");
+			value = p.getProperty(key);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+
 }

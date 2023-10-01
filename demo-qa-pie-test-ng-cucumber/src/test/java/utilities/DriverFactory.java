@@ -11,7 +11,7 @@ public class DriverFactory {
 
 	private static ThreadLocal<WebDriver> threadLocalDriver;
 
-	public static WebDriver getDriver(String browserName) throws Exception {
+	private static void initDriver(String browserName) throws Exception {
 		WebDriver driver;
 		switch (browserName.toLowerCase()) {
 		case "chrome":
@@ -32,6 +32,24 @@ public class DriverFactory {
 		driver.manage().window().maximize();
 		threadLocalDriver = new ThreadLocal<WebDriver>();
 		threadLocalDriver.set(driver);
+	}
+
+	public static void initDriver() {
+		try {
+			if (threadLocalDriver == null || threadLocalDriver.get() == null)
+				initDriver(ConfigReader.getBrowserName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static WebDriver getDriver() {
+		try {
+			if (threadLocalDriver == null || threadLocalDriver.get() == null)
+				initDriver(ConfigReader.getBrowserName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return threadLocalDriver.get();
 	}
 
