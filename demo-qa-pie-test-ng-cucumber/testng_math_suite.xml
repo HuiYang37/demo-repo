@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Math Suite">
+	<test name="Demo Test">
+		<groups>
+			<run>
+
+				<include name="math"></include>
+
+			</run>
+		</groups>
+
+
+		<packages>
+			<package name="demo_test_ng_tests" />
+		</packages>
+	</test>
+
+</suite>

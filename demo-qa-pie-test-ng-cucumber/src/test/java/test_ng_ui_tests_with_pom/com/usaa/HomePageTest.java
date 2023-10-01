@@ -1,20 +1,18 @@
-package junit_ui_tests_with_pom.com.usaa;
+package test_ng_ui_tests_with_pom.com.usaa;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import static org.testng.Assert.*;
 
-import junit_categories.Smoke;
+import org.testng.annotations.Test;
+
 import pages.usaa_pages.HomePage;
 import pages.usaa_pages.LogOnPage;
 
-public class HomePageTest extends BaseTest {
+public class HomePageTest extends TestConfig {
 
 	HomePage homePage;
 	LogOnPage logOnPage;
 
-	@Test
-	@Category(Smoke.class)
+	@Test(groups = { "ui", "smoke" })
 	public void goToLogOnPageAndBack() {
 		homePage = new HomePage(driver);
 		logOnPage = new LogOnPage(driver);
@@ -24,12 +22,12 @@ public class HomePageTest extends BaseTest {
 		homePage.clickOnLogOn();
 		// user is on the log on page
 		logOnPage.waitForPage();
-		Assert.assertTrue(logOnPage.getPageTitle().equals("Log On"));
+		assertTrue(logOnPage.getPageTitle().equals("Log On"));
 		// user clicks on [Logo] link
 		logOnPage.clickOnLogo();
 		// user is back on the home page
 		homePage.waitForPage();
-		Assert.assertTrue(homePage.getCopyrightSubtitle().contains("USAA"));
+		assertTrue(homePage.getCopyrightSubtitle().contains("USAA"));
 	}
 
 }

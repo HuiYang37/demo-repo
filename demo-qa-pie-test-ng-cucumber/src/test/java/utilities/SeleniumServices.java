@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumServices {
 
-	public void pause(int seconds) {
+	public void pause(long seconds) {
 		try {
 			Thread.sleep(seconds * 1000);
 		} catch (Exception e) {

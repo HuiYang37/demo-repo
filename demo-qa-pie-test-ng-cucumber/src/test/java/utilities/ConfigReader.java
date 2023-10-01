@@ -7,19 +7,33 @@ public class ConfigReader extends Reader {
 	public static String getBrowserName() {
 		String key = "browser";
 		load(CONFIG_FILE_PATH);
-		return p.getProperty(key);
+		return get(key);
 	}
 
 	public static String getURL() {
 		String key = "url";
 		load(CONFIG_FILE_PATH);
-		return p.getProperty(key);
+		return get(key);
+	}
+
+	public static boolean isDemo() {
+		String key = "demo";
+		load(CONFIG_FILE_PATH);
+		boolean isDemo = Boolean.valueOf(get(key));
+		return isDemo;
+	}
+
+	public static long getDemoWaitTime() {
+		String key = "demo_wait_time";
+		load(CONFIG_FILE_PATH);
+		long waitTime = Long.valueOf(get(key));
+		return waitTime;
 	}
 
 	public static long getWaitTime() {
-		String key = "wait_time";
+		String key = "ui_wait_time";
 		load(CONFIG_FILE_PATH);
-		long waitTime = Long.valueOf((String) p.get(key));
+		long waitTime = Long.valueOf(get(key));
 		return waitTime;
 	}
 
