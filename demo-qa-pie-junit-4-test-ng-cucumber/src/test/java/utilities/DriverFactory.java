@@ -9,15 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
 
-	public static WebDriver getChrome() {
-		System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver/chromedriver.exe");
-		ChromeOptions co = new ChromeOptions();
-		co.setBinary("C:\\Automation\\chrome-win64\\chrome.exe");
-		WebDriver driver = new ChromeDriver(co);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		return driver;
-	}
+	private static ThreadLocal<WebDriver> threadLocalDriver;
 
 	public static WebDriver getDriver(String browserName) throws Exception {
 		WebDriver driver;
@@ -36,7 +28,17 @@ public class DriverFactory {
 		default:
 			throw new Exception("Invalid browser name.");
 		}
-		return driver;
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		threadLocalDriver = new ThreadLocal<WebDriver>();
+		threadLocalDriver.set(driver);
+		return threadLocalDriver.get();
+	}
+
+	public static void resetDriver() {
+		if (threadLocalDriver.get() != null)
+			threadLocalDriver.get().quit();
+		threadLocalDriver.set(null);
 	}
 
 }
