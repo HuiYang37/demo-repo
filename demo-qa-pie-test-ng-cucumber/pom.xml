@@ -22,8 +22,6 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 
-		<maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
-
 	</properties>
 
 	<dependencyManagement>
@@ -122,11 +120,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.plugin.version}</version>
-				<configuration>
-					<parallel>methods</parallel>
-					<useUnlimitedThreads>true</useUnlimitedThreads>
-				</configuration>
+				<version>3.1.2</version>
 			</plugin>
 
 		</plugins>

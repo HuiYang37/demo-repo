@@ -1,6 +1,6 @@
 package step_definitions;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 import java.util.Map;
 

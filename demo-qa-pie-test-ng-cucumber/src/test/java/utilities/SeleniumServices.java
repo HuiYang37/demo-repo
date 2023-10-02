@@ -14,7 +14,7 @@ public class SeleniumServices {
 	}
 
 	public WebDriverWait getWait(WebDriver driver) {
-		return new WebDriverWait(driver, ConfigReader.getWaitTime());
+		return new WebDriverWait(driver, 15);
 	}
 
 	public void alwaysQuit(WebDriver driver) {
