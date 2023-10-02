@@ -30,11 +30,4 @@ public class ConfigReader extends Reader {
 		return waitTime;
 	}
 
-	public static long getWaitTime() {
-		String key = "ui_wait_time";
-		load(CONFIG_FILE_PATH);
-		long waitTime = Long.valueOf(get(key));
-		return waitTime;
-	}
-
 }
