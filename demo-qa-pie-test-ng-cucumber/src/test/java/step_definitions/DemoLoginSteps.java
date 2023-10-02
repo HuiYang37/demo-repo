@@ -1,5 +1,7 @@
 package step_definitions;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
@@ -44,6 +46,13 @@ public class DemoLoginSteps {
 	@Then("user is on the inventory page")
 	public void user_is_on_the_inventory_page() {
 		inventoryPage.waitForPage();
+	}
+
+	@Then("users sees the error message")
+	public void users_sees_the_error_message(DataTable dt) {
+		Map<String, String> data = dt.asMap();
+		String expectedErrorText = data.get("error");
+		assertEquals(loginPage.getErrorText(), expectedErrorText);
 	}
 
 }

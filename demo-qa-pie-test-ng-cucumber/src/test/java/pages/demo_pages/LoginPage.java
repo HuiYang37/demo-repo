@@ -1,5 +1,6 @@
 package pages.demo_pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,9 @@ public class LoginPage {
 	@FindBy(id = "login-button")
 	WebElement loginButton;
 
+	@FindBy(tagName = "h3")
+	WebElement errorText;
+
 	public LoginPage(WebDriver driver) {
 		ss = new SeleniumServices();
 		wait = ss.getWait(driver);
@@ -35,15 +39,22 @@ public class LoginPage {
 	}
 
 	public void enterUsername(String username) {
-		usernameInput.sendKeys(username);
+		if (username != null)
+			usernameInput.sendKeys(username);
 	}
 
 	public void enterPassword(String password) {
-		passwordInput.sendKeys(password);
+		if (password != null)
+			passwordInput.sendKeys(password);
 	}
 
 	public void clickOnLogin() {
 		loginButton.click();
+	}
+
+	public String getErrorText() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-message-container.error")));
+		return errorText.getText();
 	}
 
 }
