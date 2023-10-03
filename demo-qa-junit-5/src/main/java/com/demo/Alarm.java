@@ -5,7 +5,7 @@ import java.time.LocalTime;
 public class Alarm {
 
 	public static void main(String[] args) {
-		printAlarm(4, 15, true);
+		printAlarm(3, 30, true);
 	}
 
 	private static void printAlarm(int hour, int minute, boolean isMorning) {
