@@ -44,7 +44,7 @@ public class DriverFactory {
 		}
 	}
 
-	public static WebDriver getDriver() {
+	public static synchronized WebDriver getDriver() {
 		initDriver();
 		return threadLocalDriver.get();
 	}
