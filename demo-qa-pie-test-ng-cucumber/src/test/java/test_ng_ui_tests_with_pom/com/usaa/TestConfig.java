@@ -8,17 +8,17 @@ import org.testng.annotations.BeforeMethod;
 
 import utilities.ConfigReader;
 import utilities.DriverFactory;
-import utilities.SeleniumServices;
+import utilities.SeleniumService;
 
 public abstract class TestConfig {
 
 	public WebDriver driver;
-	public SeleniumServices ss;
+	public SeleniumService ss;
 
 	@BeforeMethod(groups = { "ui" })
 	public void setup() {
 		driver = DriverFactory.getDriver();
-		ss = new SeleniumServices();
+		ss = new SeleniumService();
 		Properties p = ConfigReader.loadProperties("insurance");
 		driver.get(p.getProperty("url"));
 	}

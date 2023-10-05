@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.SeleniumServices;
+import utilities.SeleniumService;
 
 public class LogOnPage {
 
 	private static final String PAGE_URL = "https://www.usaa.com/my/logon";
 	private WebDriverWait wait;
-	private SeleniumServices ss;
+	private SeleniumService ss;
 
 	@FindBy(id = "Logo-link")
 	WebElement logoLink;
@@ -22,7 +22,7 @@ public class LogOnPage {
 	WebElement pageTitle;
 
 	public LogOnPage(WebDriver driver) {
-		ss = new SeleniumServices();
+		ss = new SeleniumService();
 		wait = ss.getWait(driver);
 		PageFactory.initElements(driver, this);
 	}

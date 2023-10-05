@@ -8,13 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.SeleniumServices;
+import utilities.SeleniumService;
 
 public class LoginPage {
 
 	private static final String PAGE_URL = "https://www.saucedemo.com/";
 	private WebDriverWait wait;
-	private SeleniumServices ss;
+	private SeleniumService ss;
 
 	@FindBy(id = "user-name")
 	WebElement usernameInput;
@@ -29,7 +29,7 @@ public class LoginPage {
 	WebElement errorText;
 
 	public LoginPage(WebDriver driver) {
-		ss = new SeleniumServices();
+		ss = new SeleniumService();
 		wait = ss.getWait(driver);
 		PageFactory.initElements(driver, this);
 	}
