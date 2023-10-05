@@ -12,12 +12,12 @@ import pages.demo_pages.InventoryPage;
 import pages.demo_pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
-import utilities.SeleniumServices;
+import utilities.SeleniumService;
 
 public class DemoLoginSteps {
 
 	WebDriver driver = DriverFactory.getDriver();
-	SeleniumServices ss = new SeleniumServices();
+	SeleniumService ss = new SeleniumService();
 	LoginPage loginPage = new LoginPage(driver);
 	InventoryPage inventoryPage = new InventoryPage(driver);
 

@@ -6,12 +6,12 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.testng.annotations.Test;
 
 import utilities.ConfigReader;
-import utilities.SeleniumServices;
+import utilities.SeleniumService;
 
 public class BrowserTest {
 
 	private WebDriver driver;
-	private SeleniumServices ss = new SeleniumServices();
+	private SeleniumService ss = new SeleniumService();
 
 	@Test
 	void operaTest() {

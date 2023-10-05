@@ -6,17 +6,17 @@ import org.testng.annotations.BeforeMethod;
 
 import utilities.ConfigReader;
 import utilities.DriverFactory;
-import utilities.SeleniumServices;
+import utilities.SeleniumService;
 
 public class TestConfig {
 
 	public WebDriver driver;
-	public SeleniumServices ss;
+	public SeleniumService ss;
 
 	@BeforeMethod
 	public void setup() {
 		driver = DriverFactory.getDriver();
-		ss = new SeleniumServices();
+		ss = new SeleniumService();
 		driver.get(ConfigReader.getURL());
 	}
 
