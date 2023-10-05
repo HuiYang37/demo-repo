@@ -41,6 +41,12 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>3.0.0-alpha1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-nop</artifactId>
 			<version>2.0.9</version>
@@ -132,7 +138,7 @@
 					<properties>
 						<property>
 							<name>dataproviderthreadcount</name>
-							<value>1</value>
+							<value>5</value>
 						</property>
 					</properties>
 				</configuration>
