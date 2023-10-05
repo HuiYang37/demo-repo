@@ -1,32 +1,46 @@
 package utilities;
 
-public class ConfigReader extends Reader {
+import java.io.FileInputStream;
+import java.util.Properties;
 
-	private final static String CONFIG_FILE_PATH = "./src/test/resources/config.properties";
+public class ConfigReader {
+
+	private final static String CONFIGS_DIR_PATH = "./src/test/resources/configs/";
+
+	public static Properties loadProperties(String fileName) {
+		String fileExtension = ".properties";
+		String filePath = CONFIGS_DIR_PATH + fileName + fileExtension;
+		Properties p = new Properties();
+		try {
+			FileInputStream input = new FileInputStream(filePath);
+			p.load(input);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
 
 	public static String getBrowserName() {
 		String key = "browser";
-		load(CONFIG_FILE_PATH);
-		return get(key);
+		return (String) loadProperties("config").get(key);
 	}
 
 	public static String getURL() {
 		String key = "url";
-		load(CONFIG_FILE_PATH);
-		return get(key);
+		return (String) loadProperties("config").get(key);
 	}
 
 	public static boolean isDemo() {
 		String key = "demo";
-		load(CONFIG_FILE_PATH);
-		boolean isDemo = Boolean.valueOf(get(key));
+		String isDemoStr = loadProperties("config").getProperty(key);
+		boolean isDemo = Boolean.valueOf(isDemoStr);
 		return isDemo;
 	}
 
 	public static long getDemoWaitTime() {
 		String key = "demo_wait_time";
-		load(CONFIG_FILE_PATH);
-		long waitTime = Long.valueOf(get(key));
+		String waitTimeStr = loadProperties("config").getProperty(key);
+		long waitTime = Long.valueOf(waitTimeStr);
 		return waitTime;
 	}
 

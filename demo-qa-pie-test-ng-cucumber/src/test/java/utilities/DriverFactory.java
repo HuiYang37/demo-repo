@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 public class DriverFactory {
 
@@ -21,9 +22,12 @@ public class DriverFactory {
 			driver = new ChromeDriver(co);
 			break;
 		case "firefox":
-			System.setProperty("webdriver.firefox.driver",
-					"./src/test/resources/drivers/firefoxdriver/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "./src/test/resources/drivers/firefoxdriver/geckodriver.exe");
 			driver = new FirefoxDriver();
+			break;
+		case "":
+			System.setProperty("webdriver.opera.driver", "./src/test/resources/drivers/operadriver/operadriver.exe");
+			driver = new OperaDriver();
 			break;
 		default:
 			throw new Exception("Invalid browser name.");
