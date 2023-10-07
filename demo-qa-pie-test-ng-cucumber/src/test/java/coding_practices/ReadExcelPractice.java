@@ -1,33 +1,18 @@
 package coding_practices;
 
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import utilities.DataSheet;
+import utilities.DataReader;
 
 public class ReadExcelPractice {
 
 	@DataProvider
 	Object[] toData() {
-		String filePath = "./src/test/resources/test_data/demo-data.xlsx";
-		try {
-			FileInputStream input = new FileInputStream(filePath);
-			XSSFWorkbook workbook = new XSSFWorkbook(input);
-			XSSFSheet testDatasets = workbook.getSheet("tests");
-			DataSheet datasets = new DataSheet(testDatasets);
-			workbook.close();
-
-			return datasets.getSets();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		return DataReader.getDataSheet("demo-data", "tests").getSets();
 	}
 
 	@Test(dataProvider = "toData")

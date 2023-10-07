@@ -9,7 +9,7 @@ public class DataReader {
 
 	private final static String DATA_DIR_PATH = "./src/test/resources/test_data/";
 
-	public DataSheet getDataSheet(String dataFileName, String sheetName) {
+	public static DataSheet getDataSheet(String dataFileName, String sheetName) {
 		String extension = ".xlsx";
 		String filePath = DATA_DIR_PATH + dataFileName + extension;
 		DataSheet dataSheet = null;
