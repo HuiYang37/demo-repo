@@ -1,10 +1,10 @@
-package cucumber_hooks;
+package cucumber_hooks.ui_hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import utilities.DriverFactory;
 
-public class UI_Hooks {
+public class Hooks {
 
 	@Before("@ui")
 	public void setup() {
