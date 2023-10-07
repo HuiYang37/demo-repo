@@ -9,7 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import utilities.Datasets;
+import utilities.DataSheet;
 
 public class ReadExcelPractice {
 
@@ -20,7 +20,7 @@ public class ReadExcelPractice {
 			FileInputStream input = new FileInputStream(filePath);
 			XSSFWorkbook workbook = new XSSFWorkbook(input);
 			XSSFSheet testDatasets = workbook.getSheet("tests");
-			Datasets datasets = new Datasets(testDatasets);
+			DataSheet datasets = new DataSheet(testDatasets);
 			workbook.close();
 
 			return datasets.getSets();
