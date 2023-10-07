@@ -8,17 +8,17 @@ public class CommonTest {
 
 	@BeforeEach
 	void setup() {
-		System.out.println("A new test starts:");
+		System.out.println("A new test begins:");
 	}
 
 	@AfterEach
 	void tearDown() {
-		System.out.println("This test ends.");
+		System.out.println("This test ends.\n");
 	}
 
 	@BeforeAll
 	static void doThisFirst() {
-		System.out.println("Begin testing...");
+		System.out.println("Begin testing...\n");
 	}
 
 }
