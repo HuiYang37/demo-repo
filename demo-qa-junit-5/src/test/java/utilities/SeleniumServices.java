@@ -1,23 +1,27 @@
 package utilities;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumServices {
 
-	public void pause(int seconds) {
-		try {
-			Thread.sleep(seconds * 1000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public static void configDriver(WebDriver driver) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().window().maximize();
 	}
 
-	public void alwaysQuit(WebDriver driver) {
-		try {
-
-		} finally {
-			driver.quit();
+	public static WebDriver findDriver(String browserName) {
+		WebDriver driver;
+		switch (browserName) {
+		case "chrome":
+			driver = new ChromeDriver();
+			break;
+		default:
+			throw new IllegalArgumentException(String.format("No such browser: ", browserName));
 		}
-	}
+		return driver;
 
+	}
 }
