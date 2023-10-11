@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.SeleniumService;
+import utilities.SeleniumJob;
 
 public class HomePage {
 
 	private static final String PAGE_URL = "https://www.usaa.com/";
 	private WebDriverWait wait;
-	private SeleniumService ss;
+	private SeleniumJob sj;
 
 	@FindBy(xpath = "//div[@class='usaa-globalHeader']//a[@class='pageHeader-iconLink']")
 	WebElement logoLink;
@@ -25,8 +25,8 @@ public class HomePage {
 	WebElement copyrightDiv;
 
 	public HomePage(WebDriver driver) {
-		ss = new SeleniumService();
-		wait = ss.getWait(driver);
+		sj = new SeleniumJob(driver);
+		wait = sj.justWait();
 		PageFactory.initElements(driver, this);
 	}
 

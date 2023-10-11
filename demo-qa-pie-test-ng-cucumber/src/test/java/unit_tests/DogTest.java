@@ -1,4 +1,4 @@
-package demo_test_ng_tests;
+package unit_tests;
 
 import static org.testng.Assert.*;
 

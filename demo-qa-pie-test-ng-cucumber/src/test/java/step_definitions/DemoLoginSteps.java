@@ -12,12 +12,12 @@ import pages.demo_pages.InventoryPage;
 import pages.demo_pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
-import utilities.SeleniumService;
+import utilities.SeleniumJob;
 
 public class DemoLoginSteps {
 
 	WebDriver driver = DriverFactory.getDriver();
-	SeleniumService ss = new SeleniumService();
+	SeleniumJob ss = new SeleniumJob(driver);
 	LoginPage loginPage = new LoginPage(driver);
 	InventoryPage inventoryPage = new InventoryPage(driver);
 
@@ -28,8 +28,16 @@ public class DemoLoginSteps {
 	}
 
 	@When("user enters username and password")
-	public void user_enters_username_and_password(DataTable dt) {
-		Map<String, String> data = dt.asMap();
+	public void user_enters_username_and_password() {
+		String username = ConfigReader.getUsername();
+		String password = ConfigReader.getPassword();
+		loginPage.enterUsername(username);
+		loginPage.enterPassword(password);
+	}
+
+	@When("user attempts to enter username and password")
+	public void user_attempts_to_enter_username_and_password(DataTable table) {
+		Map<String, String> data = table.asMap();
 		String username = data.get("username");
 		String password = data.get("password");
 		loginPage.enterUsername(username);

@@ -16,7 +16,7 @@ public class DriverManager {
 		if (tlDriverManager.get() == null)
 			tlDriverManager.set(new DriverManager());
 		if (driver == null)
-			driver = SeleniumServices.findDriver(browserName);
+			driver = SeleniumService.findDriver(browserName);
 	}
 
 	public static WebDriver getInstance() {

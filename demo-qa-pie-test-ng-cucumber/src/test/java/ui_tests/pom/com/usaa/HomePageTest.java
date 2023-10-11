@@ -1,4 +1,4 @@
-package test_ng_ui_tests_with_pom.com.usaa;
+package ui_tests.pom.com.usaa;
 
 import static org.testng.Assert.*;
 

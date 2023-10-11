@@ -5,17 +5,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.SeleniumService;
+import utilities.SeleniumJob;
 
 public class InventoryPage {
 
 	private static final String PAGE_URL = "https://www.saucedemo.com/";
 	private WebDriverWait wait;
-	private SeleniumService ss;
+	private SeleniumJob sj;
 
 	public InventoryPage(WebDriver driver) {
-		ss = new SeleniumService();
-		wait = ss.getWait(driver);
+		sj = new SeleniumJob(driver);
+		wait = sj.justWait();
 		PageFactory.initElements(driver, this);
 	}
 

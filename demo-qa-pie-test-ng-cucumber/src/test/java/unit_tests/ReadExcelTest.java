@@ -1,4 +1,4 @@
-package coding_practices;
+package unit_tests;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import utilities.DataReader;
 
-public class ReadExcelPractice {
+public class ReadExcelTest {
 
 	@DataProvider
 	Object[] toData() {

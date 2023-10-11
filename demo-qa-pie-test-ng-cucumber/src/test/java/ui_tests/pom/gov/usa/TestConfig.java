@@ -1,4 +1,4 @@
-package test_ng_ui_tests_with_pom.gov.usa;
+package ui_tests.pom.gov.usa;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -6,17 +6,18 @@ import org.testng.annotations.BeforeMethod;
 
 import utilities.ConfigReader;
 import utilities.DriverFactory;
-import utilities.SeleniumService;
+import utilities.SeleniumJob;
 
 public class TestConfig {
 
 	public WebDriver driver;
-	public SeleniumService ss;
+	public SeleniumJob sj;
 
 	@BeforeMethod
 	public void setup() {
+		DriverFactory.initDriver();
 		driver = DriverFactory.getDriver();
-		ss = new SeleniumService();
+		sj = new SeleniumJob(driver);
 		driver.get(ConfigReader.getURL());
 	}
 

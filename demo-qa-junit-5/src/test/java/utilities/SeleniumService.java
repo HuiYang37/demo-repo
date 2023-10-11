@@ -5,7 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SeleniumServices {
+public class SeleniumService {
 
 	public static void configDriver(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -22,6 +22,5 @@ public class SeleniumServices {
 			throw new IllegalArgumentException(String.format("No such browser: ", browserName));
 		}
 		return driver;
-
 	}
 }

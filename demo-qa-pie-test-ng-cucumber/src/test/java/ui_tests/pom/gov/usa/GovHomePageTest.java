@@ -1,4 +1,4 @@
-package test_ng_ui_tests_with_pom.gov.usa;
+package ui_tests.pom.gov.usa;
 
 import static org.testng.Assert.*;
 
