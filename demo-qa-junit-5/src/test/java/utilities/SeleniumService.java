@@ -21,6 +21,8 @@ public class SeleniumService {
 		default:
 			throw new IllegalArgumentException(String.format("No such browser: ", browserName));
 		}
+		configDriver(driver);
 		return driver;
 	}
+
 }

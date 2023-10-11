@@ -23,4 +23,11 @@ public class DriverManager {
 		return driver;
 	}
 
+	public static void tearDownDriver() {
+		if (driver != null)
+			driver.quit();
+		if (tlDriverManager != null)
+			tlDriverManager = null;
+	}
+
 }
