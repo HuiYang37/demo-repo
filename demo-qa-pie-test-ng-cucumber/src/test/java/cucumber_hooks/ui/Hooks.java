@@ -1,4 +1,4 @@
-package cucumber_hooks.ui_hooks;
+package cucumber_hooks.ui;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -9,14 +9,11 @@ public class Hooks {
 	@Before("@ui")
 	public void setup() {
 		DriverFactory.initDriver();
-		System.out.println("Scenario starts...");
-		System.out.println("Thread ID => " + Thread.currentThread().getId());
 	}
 
 	@After("@ui")
 	public void cleanup() {
 		DriverFactory.resetDriver();
-		System.out.println("Thread ID => " + Thread.currentThread().getId());
-		System.out.println("Scenario ends");
 	}
+
 }

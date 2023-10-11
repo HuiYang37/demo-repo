@@ -1,4 +1,4 @@
-package utilities;
+package utilities.file_readers;
 
 import java.io.FileInputStream;
 import java.util.Properties;

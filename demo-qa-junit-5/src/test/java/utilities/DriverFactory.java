@@ -9,7 +9,7 @@ public class DriverFactory {
 
 	public static WebDriver getChrome() {
 		WebDriver driver = new ChromeDriver();
-		SeleniumServices.configDriver(driver);
+		SeleniumService.configDriver(driver);
 		return driver;
 	}
 
@@ -19,13 +19,13 @@ public class DriverFactory {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-gpu");
 		WebDriver driver = new ChromeDriver(options);
-		SeleniumServices.configDriver(driver);
+		SeleniumService.configDriver(driver);
 		return driver;
 	}
 
 	public static WebDriver getFirefox() {
 		WebDriver driver = new FirefoxDriver();
-		SeleniumServices.configDriver(driver);
+		SeleniumService.configDriver(driver);
 		return driver;
 	}
 
