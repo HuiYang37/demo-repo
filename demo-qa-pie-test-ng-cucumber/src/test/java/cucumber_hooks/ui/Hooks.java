@@ -1,4 +1,4 @@
-package cucumber_hooks.ui_hooks;
+package cucumber_hooks.ui;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
