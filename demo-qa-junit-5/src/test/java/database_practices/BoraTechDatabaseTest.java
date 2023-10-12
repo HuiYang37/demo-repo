@@ -42,4 +42,43 @@ public class BoraTechDatabaseTest extends BaseTest {
 		}
 	}
 
+	@Test
+	void employeesHeaderTest() {
+		String queryUseTable = "use classicmodels;";
+		String query = "select * from employees;";
+		try {
+			stmt.execute(queryUseTable);
+			ResultSet set = stmt.executeQuery(query);
+			ResultSetMetaData data = set.getMetaData();
+			for (int i = 1; i <= data.getColumnCount(); i++) {
+				System.out.print(data.getColumnLabel(i) + ", ");
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	void employeesSelectDataTest() {
+		String queryUseTable = "use classicmodels;";
+		String query = "select employeeNumber, firstName, lastName, jobTitle from employees;";
+		try {
+			stmt.execute(queryUseTable);
+			ResultSet set = stmt.executeQuery(query);
+			ResultSetMetaData data = set.getMetaData();
+			for (int i = 1; i <= data.getColumnCount(); i++) {
+				System.out.print(data.getColumnLabel(i) + ", ");
+			}
+			System.out.println();
+			while (set.next()) {
+				System.out.println(String.format("\t%s,\t %s, %s, %s", set.getString("employeeNumber"),
+						set.getString("firstName"), set.getString("lastName"), set.getString("jobTitle")));
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
