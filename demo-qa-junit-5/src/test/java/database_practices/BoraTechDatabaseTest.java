@@ -1,9 +1,11 @@
 package database_practices;
 
+import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class BoraTechDatabaseTest extends BaseTest {
@@ -25,6 +27,7 @@ public class BoraTechDatabaseTest extends BaseTest {
 	}
 
 	@Test
+	@Tag("hero")
 	void showTablesTest() {
 		String queryUseTable = "use classicmodels;";
 		String query = "show tables;";
@@ -33,9 +36,13 @@ public class BoraTechDatabaseTest extends BaseTest {
 			ResultSet set = stmt.executeQuery(query);
 			ResultSetMetaData data = set.getMetaData();
 			int num = data.getColumnCount();
-			System.out.println(num);
-			while (set.next())
+			int count = 0;
+			System.out.println("No. of columns: " + num);
+			while (set.next()) {
+				count++;
 				System.out.println(set.getString(1));
+			}
+			System.out.println("No. of tables: " + count);
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
