@@ -16,8 +16,6 @@ public class DriverFactory {
 	public static WebDriver getHeadlessChrome() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-gpu");
 		WebDriver driver = new ChromeDriver(options);
 		SeleniumService.configDriver(driver);
 		return driver;

@@ -6,13 +6,13 @@ import java.util.Map.Entry;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import utilities.DataReader;
+import utilities.ExcelReader;
 
 public class ReadExcelTest {
 
 	@DataProvider
 	Object[] toData() {
-		return DataReader.getDataSheet("demo-data", "tests").getSets();
+		return ExcelReader.getDataSheet("demo-data", "tests").getSets();
 	}
 
 	@Test(dataProvider = "toData")
