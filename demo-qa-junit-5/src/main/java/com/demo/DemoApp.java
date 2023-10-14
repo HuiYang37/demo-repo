@@ -6,7 +6,7 @@ public class DemoApp {
 		System.out.println("This is a demo.");
 	}
 
-	public static int findMax(int[] nums) {
+	public static int findMaxNumFromArray(int[] nums) {
 		int max = nums[0];
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] > max)

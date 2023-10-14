@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import com.demo.DemoApp;
@@ -20,9 +21,9 @@ public class DemoTest {
 	}
 
 	@Test
-	@Tag("math")
-	void testDemoApp_findMax() {
-		assertEquals(7, DemoApp.findMax(new int[] { 3, 7, 4 }));
+	@Tags({ @Tag("demo"), @Tag("math") })
+	void findMaxNumFromArrayTest() {
+		assertEquals(7, DemoApp.findMaxNumFromArray(new int[] { 3, 7, 4 }));
 	}
 
 }

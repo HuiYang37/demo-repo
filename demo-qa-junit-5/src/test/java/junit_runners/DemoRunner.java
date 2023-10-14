@@ -5,8 +5,8 @@ import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
-@SelectPackages(value = { "database_practices" })
-@IncludeTags(value = { "hero" })
-public class HeroRunner {
+@SelectPackages({ "demo_tests.junit_tests" })
+@IncludeTags({ "demo" })
+public class DemoRunner {
 
 }

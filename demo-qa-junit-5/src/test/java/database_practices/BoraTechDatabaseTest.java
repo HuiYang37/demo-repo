@@ -1,11 +1,11 @@
 package database_practices;
 
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 public class BoraTechDatabaseTest extends BaseTest {
@@ -27,7 +27,7 @@ public class BoraTechDatabaseTest extends BaseTest {
 	}
 
 	@Test
-	@Tag("hero")
+	@Tag("boratech")
 	void showTablesTest() {
 		String queryUseTable = "use classicmodels;";
 		String query = "show tables;";
@@ -67,6 +67,7 @@ public class BoraTechDatabaseTest extends BaseTest {
 	}
 
 	@Test
+	@Tags({@Tag("demo"), @Tag("table")})
 	void employeesSelectDataTest() {
 		String queryUseTable = "use classicmodels;";
 		String query = "select employeeNumber, firstName, lastName, jobTitle from employees;";
