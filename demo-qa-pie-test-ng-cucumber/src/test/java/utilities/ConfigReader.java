@@ -29,10 +29,10 @@ public class ConfigReader extends Reader {
 		return isDemo;
 	}
 
-	public static long getDemoWaitTime() {
+	public static int getDemoWaitTime() {
 		String key = "demo_wait_time";
 		String waitTimeStr = loadProperties("config").getProperty(key);
-		long waitTime = Long.valueOf(waitTimeStr);
+		int waitTime = Integer.valueOf(waitTimeStr);
 		return waitTime;
 	}
 

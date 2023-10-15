@@ -13,6 +13,7 @@ import pages.demo_pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 import utilities.SeleniumJob;
+import utilities.TestUtils;
 
 public class DemoLoginSteps {
 
@@ -47,7 +48,7 @@ public class DemoLoginSteps {
 	@When("user clicks on [Login] button")
 	public void user_clicks_on_login_button() {
 		if (ConfigReader.isDemo())
-			ss.pause(ConfigReader.getDemoWaitTime());
+			TestUtils.pause(ConfigReader.getDemoWaitTime());
 		loginPage.clickOnLogin();
 	}
 
