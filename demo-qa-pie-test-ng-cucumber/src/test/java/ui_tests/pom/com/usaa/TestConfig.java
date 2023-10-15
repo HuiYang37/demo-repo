@@ -5,11 +5,13 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 import utilities.SeleniumJob;
 
+@Listeners(TestListener.class)
 public abstract class TestConfig {
 
 	public WebDriver driver;
