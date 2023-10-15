@@ -41,10 +41,19 @@ public class SeleniumJob {
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String text = scenario.getUri().getPath();
 		String fileName = text.substring(text.lastIndexOf("/") + 1).replace(".feature", "");
-
 		String filePath = String.format("./src/test/resources/failed_tests/%s_%s_%s.png", fileName, name,
 				TestUtils.getTimestamp());
+		try {
+			FileUtils.copyFile(screenshotFile, new File(filePath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
+	public void takeScreen() {
+		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String name = "Failed_Test";
+		String filePath = String.format("./src/test/resources/failed_tests/%s_%s.png", name, TestUtils.getTimestamp());
 		try {
 			FileUtils.copyFile(screenshotFile, new File(filePath));
 		} catch (IOException e) {

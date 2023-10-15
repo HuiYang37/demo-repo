@@ -26,7 +26,7 @@ public class Hooks {
 		DriverFactory.resetDriver();
 	}
 
-	@AfterStep()
+	@AfterStep("@stop")
 	public void didStepfail(Scenario scenario) {
 		if (scenario.isFailed()) {
 			sj.takeScreen(scenario);
