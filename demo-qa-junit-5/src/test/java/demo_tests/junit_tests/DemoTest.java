@@ -26,4 +26,14 @@ public class DemoTest {
 		assertEquals(7, DemoApp.findMaxNumFromArray(new int[] { 3, 7, 4 }));
 	}
 
+	@Test
+	void iterativeBinarySearchTest() {
+		assertTrue(DemoApp.iterativeBinarySearch(new int[] { 0 }, 0));
+		assertTrue(DemoApp.iterativeBinarySearch(new int[] { 0, 1 }, 0));
+		assertTrue(DemoApp.iterativeBinarySearch(new int[] { 0, 1 }, 1));
+
+		assertFalse(DemoApp.iterativeBinarySearch(new int[] { 0 }, 5));
+		assertFalse(DemoApp.iterativeBinarySearch(new int[] { 0, 1 }, 5));
+	}
+
 }
