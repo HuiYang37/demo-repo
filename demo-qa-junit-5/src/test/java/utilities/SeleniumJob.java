@@ -19,11 +19,11 @@ public class SeleniumJob {
 
 	public SeleniumJob(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		act = new Actions(driver);
 	}
 
-	public WebDriverWait justWait() {
+	public WebDriverWait stayPut() {
 		return wait;
 	}
 

@@ -1,4 +1,4 @@
-package demo_tests.ui;
+package tests.ui;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class HeadlessBaseTest {
+public class HeadlessChromeBaseTest {
 
-	WebDriver driver;
+	protected WebDriver driver;
 
 	@BeforeEach
 	void setup() {

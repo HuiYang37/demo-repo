@@ -1,4 +1,4 @@
-package demo_tests.ui;
+package tests.ui;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import utilities.DriverFactory;
 import utilities.TestUtils;
-import utilities.file_readers.ConfigReader;
+import utilities.readers.ConfigReader;
 
 public class BrowserTest {
 
@@ -19,7 +19,7 @@ public class BrowserTest {
 
 	@Test
 	void chromeTest() {
-		url = ConfigReader.loadProperties("demo").getProperty("url");
+		url = ConfigReader.load("demo").getProperty("url");
 		driver = DriverFactory.getChrome();
 		driver.get(url);
 		driver.findElement(By.xpath("//a[text()='Membership']")).click();
@@ -32,7 +32,7 @@ public class BrowserTest {
 
 	@Test
 	void edgeTest() {
-		url = ConfigReader.loadProperties("demo").getProperty("url");
+		url = ConfigReader.load("demo").getProperty("url");
 		driver = DriverFactory.getEdge();
 		driver.get(url);
 		driver.findElement(By.xpath("//a[text()='Membership']")).click();

@@ -1,4 +1,4 @@
-package demo_tests.ui;
+package tests.ui;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import utilities.TestUtils;
 
-public class HeadlessTest extends HeadlessBaseTest {
+public class HeadlessTest extends HeadlessChromeBaseTest {
 
 	@Test
 	void runTest() {

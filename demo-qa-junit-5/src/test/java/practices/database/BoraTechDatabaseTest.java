@@ -1,4 +1,4 @@
-package database_practices;
+package practices.database;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-public class BoraTechDatabaseTest extends BaseTest {
+public class BoraTechDatabaseTest extends DatabaseBaseTest {
 
 	@Test
 	void showDBTest() {

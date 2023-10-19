@@ -1,14 +1,14 @@
-package demo_tests.junit_tests;
+package tests.junit;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-public class CommonTest {
+public class BaseTest {
 
 	@BeforeEach
 	void setup() {
-		System.out.println("A new test begins:");
+		System.out.println("A test starts:");
 	}
 
 	@AfterEach

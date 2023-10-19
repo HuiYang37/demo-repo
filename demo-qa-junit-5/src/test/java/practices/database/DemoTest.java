@@ -1,4 +1,4 @@
-package database_practices;
+package practices.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import utilities.file_readers.ConfigReader;
+import utilities.readers.ConfigReader;
 
 public class DemoTest {
 
@@ -37,9 +37,9 @@ public class DemoTest {
 	@BeforeEach
 	void setup() {
 		try {
-			conn = DriverManager.getConnection(ConfigReader.loadProperties("demo-database").getProperty("url"),
-					ConfigReader.loadProperties("demo-database").getProperty("username"),
-					ConfigReader.loadProperties("demo-database").getProperty("password"));
+			conn = DriverManager.getConnection(ConfigReader.load("demo-database").getProperty("url"),
+					ConfigReader.load("demo-database").getProperty("username"),
+					ConfigReader.load("demo-database").getProperty("password"));
 			stmt = conn.createStatement();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class DemoTest {
 	}
 
 	@AfterEach
-	void tearDown() {
+	void cleanup() {
 		try {
 			conn.close();
 		} catch (SQLException e) {

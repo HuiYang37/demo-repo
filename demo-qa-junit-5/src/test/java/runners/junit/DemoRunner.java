@@ -1,12 +1,12 @@
-package junit_runners;
+package runners.junit;
 
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
-@SelectPackages(value = { "demo_tests" })
-@IncludeTags(value = { "smoke" })
-public class RunSmoke {
+@SelectPackages({ "tests.junit" })
+@IncludeTags({ "demo" })
+public class DemoRunner {
 
 }
