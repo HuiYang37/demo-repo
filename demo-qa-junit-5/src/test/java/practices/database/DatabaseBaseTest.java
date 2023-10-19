@@ -1,4 +1,4 @@
-package database_practices;
+package practices.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,9 @@ import java.sql.Statement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import utilities.file_readers.DatabaseReader;
+import utilities.readers.DatabaseReader;
 
-public class BaseTest {
+public class DatabaseBaseTest {
 
 	Connection conn;
 	Statement stmt;

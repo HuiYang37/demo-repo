@@ -1,4 +1,4 @@
-package demo_tests.junit_tests;
+package tests.junit;
 
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.annotation.Testable;
@@ -10,4 +10,5 @@ public class DemoNotYouThink {
 	void run() {
 		System.out.println("This is still a test.");
 	}
+
 }

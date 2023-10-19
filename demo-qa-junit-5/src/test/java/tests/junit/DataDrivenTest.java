@@ -1,4 +1,4 @@
-package demo_tests.junit_tests;
+package tests.junit;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class DataDrivenTest extends CommonTest {
+public class DataDrivenTest extends BaseTest {
 
 	@ParameterizedTest
 	@ValueSource(ints = { 2, 4, 6 })

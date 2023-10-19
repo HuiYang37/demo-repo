@@ -1,4 +1,4 @@
-package demo_tests.ui;
+package tests.ui;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,8 +10,8 @@ import utilities.SeleniumJob;
 
 public class BaseTest {
 
-	WebDriver driver;
-	SeleniumJob sj;
+	protected WebDriver driver;
+	protected SeleniumJob sj;
 
 	@BeforeEach
 	@Tag("ui")

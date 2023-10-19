@@ -1,10 +1,10 @@
-package junit_runners;
+package runners.junit;
 
 import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
-@SelectPackages(value = { "demo_tests" })
+@SelectPackages(value = { "tests.ui" })
 public class JustRun {
 
 }

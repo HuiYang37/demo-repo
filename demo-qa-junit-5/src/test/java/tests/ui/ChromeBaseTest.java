@@ -1,4 +1,4 @@
-package demo_tests.ui;
+package tests.ui;
 
 import java.io.File;
 
@@ -14,8 +14,8 @@ import utilities.SeleniumService;
 
 public class ChromeBaseTest {
 
-	WebDriver driver;
-	SeleniumJob sj;
+	protected WebDriver driver;
+	protected SeleniumJob sj;
 
 	@BeforeEach
 	void setup() {
