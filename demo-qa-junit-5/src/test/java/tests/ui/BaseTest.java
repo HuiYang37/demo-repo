@@ -16,7 +16,6 @@ public class BaseTest {
 	@BeforeEach
 	@Tag("ui")
 	void setup() {
-		DriverManager.initManager("chrome");
 		driver = DriverManager.getInstance();
 		sj = new SeleniumJob(driver);
 	}
@@ -24,7 +23,7 @@ public class BaseTest {
 	@AfterEach
 	@Tag("ui")
 	void cleanup() {
-		DriverManager.tearDownDriver();
+		DriverManager.reset();
 	}
 
 }
