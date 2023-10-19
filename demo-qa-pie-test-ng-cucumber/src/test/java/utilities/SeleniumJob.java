@@ -50,7 +50,7 @@ public class SeleniumJob {
 		}
 	}
 
-	public void takeScreen() {
+	public void takeScreenshotOnFailedTest() {
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String name = "Failed_Test";
 		String filePath = String.format("./src/test/resources/failed_tests/%s_%s.png", name, TestUtils.getTimestamp());

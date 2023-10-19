@@ -4,17 +4,17 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-	private static ThreadLocal<DriverManager> tlDriverManager;
+	private static ThreadLocal<DriverManager> threadLocalDriverManager;
 	private static WebDriver driver;
 
 	private DriverManager() {
 	}
 
 	public static void initManager(String browserName) {
-		if (tlDriverManager == null)
-			tlDriverManager = new ThreadLocal<DriverManager>();
-		if (tlDriverManager.get() == null)
-			tlDriverManager.set(new DriverManager());
+		if (threadLocalDriverManager == null)
+			threadLocalDriverManager = new ThreadLocal<DriverManager>();
+		if (threadLocalDriverManager.get() == null)
+			threadLocalDriverManager.set(new DriverManager());
 		if (driver == null)
 			driver = SeleniumService.findDriver(browserName);
 	}
@@ -26,8 +26,8 @@ public class DriverManager {
 	public static void tearDownDriver() {
 		if (driver != null)
 			driver.quit();
-		if (tlDriverManager != null)
-			tlDriverManager = null;
+		if (threadLocalDriverManager != null)
+			threadLocalDriverManager = null;
 	}
 
 }

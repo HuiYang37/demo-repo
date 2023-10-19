@@ -2,24 +2,37 @@ package utilities;
 
 public class ConfigReader extends Reader {
 
-	private final static String CONFIG_FILE_PATH = "./src/test/resources/config.properties";
+	public static String getUsername() {
+		String key = "username";
+		return (String) loadProperties("credential").get(key);
+	}
+
+	public static String getPassword() {
+		String key = "password";
+		return (String) loadProperties("credential").get(key);
+	}
 
 	public static String getBrowserName() {
 		String key = "browser";
-		load(CONFIG_FILE_PATH);
-		return p.getProperty(key);
+		return (String) loadProperties("config").get(key);
 	}
 
 	public static String getURL() {
 		String key = "url";
-		load(CONFIG_FILE_PATH);
-		return p.getProperty(key);
+		return (String) loadProperties("config").get(key);
 	}
 
-	public static long getWaitTime() {
-		String key = "wait_time";
-		load(CONFIG_FILE_PATH);
-		long waitTime = Long.valueOf((String) p.get(key));
+	public static boolean isDemo() {
+		String key = "demo";
+		String isDemoStr = loadProperties("config").getProperty(key);
+		boolean isDemo = Boolean.valueOf(isDemoStr);
+		return isDemo;
+	}
+
+	public static int getDemoWaitTime() {
+		String key = "demo_wait_time";
+		String waitTimeStr = loadProperties("config").getProperty(key);
+		int waitTime = Integer.valueOf(waitTimeStr);
 		return waitTime;
 	}
 
