@@ -1,21 +1,23 @@
 package utilities;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
-public class Reader {
+public abstract class Reader {
 
-	protected static Properties p;
+	protected final static String CONFIGS_DIR_PATH = "./src/test/resources/configs/";
 
-	protected static void load(String filePath) {
+	public static Properties loadProperties(String fileName) {
+		String fileExtension = ".properties";
+		String filePath = CONFIGS_DIR_PATH + fileName + fileExtension;
+		Properties p = new Properties();
 		try {
 			FileInputStream input = new FileInputStream(filePath);
-			p = new Properties();
 			p.load(input);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return p;
 	}
 
 }

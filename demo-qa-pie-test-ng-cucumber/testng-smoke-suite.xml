@@ -9,6 +9,10 @@
 		</run>
 	</groups>
 
+	<listeners>
+		<listener class-name="ui_tests.pom.com.usaa.TestListener"></listener>
+	</listeners>
+
 	<test name="DemoTest">
 		<packages>
 			<package name="ui_tests.pom.com.usaa" />

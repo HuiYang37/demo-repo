@@ -13,7 +13,7 @@ public class TestListener implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		WebDriver driver = DriverFactory.getDriver();
 		SeleniumJob sj = new SeleniumJob(driver);
-		sj.takeScreen();
+		sj.takeScreenshotOnFailedTest();
 	}
 
 }

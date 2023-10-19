@@ -5,8 +5,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 import junit_categories.Smoke;
-import pages.usaa_pages.HomePage;
-import pages.usaa_pages.LogOnPage;
+import junit_ui_tests_with_pom.BaseTest;
+import pages.usaa.HomePage;
+import pages.usaa.LogOnPage;
 
 public class HomePageTest extends BaseTest {
 
@@ -16,6 +17,7 @@ public class HomePageTest extends BaseTest {
 	@Test
 	@Category(Smoke.class)
 	public void goToLogOnPageAndBack() {
+		driver.get("https://www.usaa.com/");
 		homePage = new HomePage(driver);
 		logOnPage = new LogOnPage(driver);
 		// user is on the home page
