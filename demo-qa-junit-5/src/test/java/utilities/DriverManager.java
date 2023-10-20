@@ -7,16 +7,15 @@ public class DriverManager {
 	private static ThreadLocal<DriverManager> threadLocalDriverManager;
 	private static WebDriver driver;
 
-	private DriverManager() {
+	private DriverManager(String browserName) {
+		driver = SeleniumService.findDriver(browserName);
 	}
 
 	public static void initManager(String browserName) {
 		if (threadLocalDriverManager == null)
 			threadLocalDriverManager = new ThreadLocal<DriverManager>();
 		if (threadLocalDriverManager.get() == null)
-			threadLocalDriverManager.set(new DriverManager());
-		if (driver == null)
-			driver = SeleniumService.findDriver(browserName);
+			threadLocalDriverManager.set(new DriverManager(browserName));
 	}
 
 	public static WebDriver getInstance() {
@@ -26,8 +25,7 @@ public class DriverManager {
 	public static void tearDownDriver() {
 		if (driver != null)
 			driver.quit();
-		if (threadLocalDriverManager != null)
-			threadLocalDriverManager = null;
+		threadLocalDriverManager.set(null);
 	}
 
 }
