@@ -1,7 +1,5 @@
 package utilities;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
@@ -24,8 +22,6 @@ public class DriverManager {
 				driver = DriverFactory.getChrome();
 			else
 				driver = SeleniumService.findDriver(browserName);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-			driver.manage().window().maximize();
 			threadLocalDriver.set(driver);
 		}
 		return threadLocalDriver.get();
