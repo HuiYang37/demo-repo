@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import tests.ui.BaseTest;
 
-public class SeleniumExceptions extends BaseTest {
+public class SeleniumExceptionsTest extends BaseTest {
 
 	@Test
 	void runElementClickInterceptedExceptionTest() {

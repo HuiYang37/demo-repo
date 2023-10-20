@@ -4,43 +4,28 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-	private static ThreadLocal<WebDriver> threadLocalDriver;
-	private static String browserName;
-	private static boolean headless;
+	private static ThreadLocal<DriverManager> threadLocalDriverManager;
+	private static WebDriver driver;
 
-	private DriverManager() {
+	private DriverManager(String browserName) {
+		driver = SeleniumService.findDriver(browserName);
 	}
 
-	public static WebDriver getInstance() {
-		if (threadLocalDriver == null)
-			threadLocalDriver = new ThreadLocal<>();
-		if (threadLocalDriver.get() == null) {
-			WebDriver driver;
-			if (headless)
-				driver = DriverFactory.getHeadlessChrome();
-			else if (browserName == null)
-				driver = DriverFactory.getChrome();
-			else
-				driver = SeleniumService.findDriver(browserName);
-			threadLocalDriver.set(driver);
-		}
-		return threadLocalDriver.get();
+	public static void initManager(String browserName) {
+		if (threadLocalDriverManager == null)
+			threadLocalDriverManager = new ThreadLocal<DriverManager>();
+		if (threadLocalDriverManager.get() == null)
+			threadLocalDriverManager.set(new DriverManager(browserName));
 	}
 
-	public static void reset() {
-		if (threadLocalDriver.get() != null)
-			threadLocalDriver.get().quit();
-		threadLocalDriver.set(null);
-		headless = false;
-		browserName = null;
+	public static WebDriver getDriver() {
+		return driver;
 	}
 
-	public static void setHeadless(boolean headless) {
-		DriverManager.headless = headless;
-	}
-
-	public static void setBrowserName(String browserName) {
-		DriverManager.browserName = browserName;
+	public static void resetManager() {
+		if (driver != null)
+			driver.quit();
+		threadLocalDriverManager.set(null);
 	}
 
 }

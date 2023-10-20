@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.Alert;
@@ -14,7 +15,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import tests.ui.ChromeBaseTest;
 
 @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
-public class AlertPractice extends ChromeBaseTest {
+@Tag("ui")
+public class AlertPracticeTest extends ChromeBaseTest {
 
 	@Test()
 	@Order(0)

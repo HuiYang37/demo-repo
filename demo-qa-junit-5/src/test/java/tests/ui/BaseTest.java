@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import utilities.DriverManager;
 import utilities.SeleniumJob;
+import utilities.readers.ConfigReader;
 
 public class BaseTest {
 
@@ -16,14 +17,15 @@ public class BaseTest {
 	@BeforeEach
 	@Tag("ui")
 	void setup() {
-		driver = DriverManager.getInstance();
+		DriverManager.initManager(ConfigReader.getBrowserName());
+		driver = DriverManager.getDriver();
 		sj = new SeleniumJob(driver);
 	}
 
 	@AfterEach
 	@Tag("ui")
 	void cleanup() {
-		DriverManager.reset();
+		DriverManager.resetManager();
 	}
 
 }
