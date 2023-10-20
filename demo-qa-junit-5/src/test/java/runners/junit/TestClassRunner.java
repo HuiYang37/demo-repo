@@ -3,10 +3,10 @@ package runners.junit;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
-import practices.ui.AlertPractice;
+import practices.ui.AlertPracticeTest;
 
 @Suite
-@SelectClasses(value = { AlertPractice.class })
-public class TestRunner {
+@SelectClasses(value = { AlertPracticeTest.class })
+public class TestClassRunner {
 
 }

@@ -7,13 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 public class BaseTest {
 
 	@BeforeEach
-	void setup() {
+	void startTest() {
 		System.out.println("A test starts:");
 	}
 
 	@AfterEach
-	void tearDown() {
-		System.out.println("This test ends.\n");
+	void endTest() {
+
 	}
 
 	@BeforeAll
