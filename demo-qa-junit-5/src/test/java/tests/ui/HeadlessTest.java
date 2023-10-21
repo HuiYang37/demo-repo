@@ -3,11 +3,14 @@ package tests.ui;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import tests.extensions.AfterTestAction;
 import utilities.TestUtils;
 
+@ExtendWith(AfterTestAction.class)
 public class HeadlessTest extends HeadlessChromeBaseTest {
 
 	@Test
@@ -18,7 +21,6 @@ public class HeadlessTest extends HeadlessChromeBaseTest {
 		List<WebElement> joinElements = driver.findElements(By.xpath("//a[text()='Join USAA']"));
 		System.out.println("Total <Join> buttons: " + joinElements.size());
 		System.out.println(driver.getTitle());
-		System.out.println("Test passed.");
 	}
 
 }
