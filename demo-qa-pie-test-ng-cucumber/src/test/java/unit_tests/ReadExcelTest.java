@@ -12,7 +12,7 @@ public class ReadExcelTest {
 
 	@DataProvider
 	Object[] toData() {
-		return ExcelReader.getDataSheet("demo-data", "tests").getSets();
+		return ExcelReader.getDataSheet("demo-data", "tests").getArray();
 	}
 
 	@Test(dataProvider = "toData")
