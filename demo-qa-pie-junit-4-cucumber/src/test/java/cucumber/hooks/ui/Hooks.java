@@ -1,25 +1,25 @@
-package junit_ui_tests_with_pom;
+package cucumber.hooks.ui;
 
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import utilities.DriverFactory;
 import utilities.SeleniumJob;
 
-public class BaseTest {
+public class Hooks {
 
-	public WebDriver driver;
-	public SeleniumJob sj;
+	WebDriver driver;
+	SeleniumJob sj;
 
-	@Before
+	@Before("@ui")
 	public void setup() {
 		DriverFactory.initDriver("chrome");
 		driver = DriverFactory.getDriver();
 		sj = new SeleniumJob(driver);
 	}
 
-	@After
+	@After("@ui")
 	public void cleanup() {
 		DriverFactory.resetDriver();
 	}

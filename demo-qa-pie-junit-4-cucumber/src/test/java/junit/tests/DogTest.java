@@ -1,4 +1,4 @@
-package demo_junit_tests;
+package junit.tests;
 
 import org.junit.Assert;
 import org.junit.Test;

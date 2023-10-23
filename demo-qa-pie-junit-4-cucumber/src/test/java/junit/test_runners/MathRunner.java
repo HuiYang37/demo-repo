@@ -1,16 +1,16 @@
-package junit_ui_test_runners;
+package junit.test_runners;
 
 import org.junit.experimental.categories.Categories;
 import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
 
-import junit_categories.Smoke;
-import junit_ui_tests_with_pom.com.usaa.HomePageTest;
+import junit.categories.Math;
+import junit.tests.DemoAppTest;
 
 @RunWith(Categories.class)
-@IncludeCategory({ Smoke.class })
-@SuiteClasses({ HomePageTest.class })
-public class SmokeRunner {
+@IncludeCategory({ Math.class })
+@SuiteClasses(value = { DemoAppTest.class })
+public class MathRunner {
 
 }

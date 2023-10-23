@@ -1,4 +1,4 @@
-package demo_junit_tests;
+package junit.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.experimental.categories.Category;
 
 import com.demo.DemoApp;
 
-import junit_categories.Math;
+import junit.categories.Math;
 
 public class DemoAppTest {
 
