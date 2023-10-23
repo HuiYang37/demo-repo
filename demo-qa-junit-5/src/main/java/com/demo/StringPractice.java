@@ -11,4 +11,10 @@ public class StringPractice {
 		System.out.println();
 	}
 
+	public static String getReverseText(String text) {
+		if (text == null || text.isEmpty())
+			return text;
+		return text.charAt(text.length() - 1) + getReverseText(text.substring(0, text.length() - 1));
+	}
+
 }

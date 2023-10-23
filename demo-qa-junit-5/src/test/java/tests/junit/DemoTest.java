@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-import com.demo.DemoApp;
+import com.demo.ArrayPractice;
 
 //class name must be xxxTest without @Testable
 public class DemoTest {
@@ -22,18 +22,18 @@ public class DemoTest {
 
 	@Test
 	@Tags({ @Tag("demo"), @Tag("math") })
-	void findMaxNumFromArrayTest() {
-		assertEquals(7, DemoApp.findMaxNumFromArray(new int[] { 3, 7, 4 }));
+	void findMaxNumTest() throws Exception {
+		assertEquals(7, ArrayPractice.findMaxNum(new int[] { 3, 7, 4 }));
 	}
 
 	@Test
 	void iterativeBinarySearchTest() {
-		assertTrue(DemoApp.iterativeBinarySearch(new int[] { 0 }, 0));
-		assertTrue(DemoApp.iterativeBinarySearch(new int[] { 0, 1 }, 0));
-		assertTrue(DemoApp.iterativeBinarySearch(new int[] { 0, 1 }, 1));
+		assertTrue(ArrayPractice.iterativeBinarySearch(new int[] { 0 }, 0));
+		assertTrue(ArrayPractice.iterativeBinarySearch(new int[] { 0, 1 }, 0));
+		assertTrue(ArrayPractice.iterativeBinarySearch(new int[] { 0, 1 }, 1));
 
-		assertFalse(DemoApp.iterativeBinarySearch(new int[] { 0 }, 5));
-		assertFalse(DemoApp.iterativeBinarySearch(new int[] { 0, 1 }, 5));
+		assertFalse(ArrayPractice.iterativeBinarySearch(new int[] { 0 }, 5));
+		assertFalse(ArrayPractice.iterativeBinarySearch(new int[] { 0, 1 }, 5));
 	}
 
 }
