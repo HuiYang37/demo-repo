@@ -1,11 +1,11 @@
-package junit_ui_tests_with_pom.com.usaa;
+package junit.ui.tests.pom.com.usaa;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import junit_categories.Smoke;
-import junit_ui_tests_with_pom.BaseTest;
+import junit.categories.Smoke;
+import junit.ui.tests.pom.BaseTest;
 import pages.usaa.HomePage;
 import pages.usaa.LogOnPage;
 

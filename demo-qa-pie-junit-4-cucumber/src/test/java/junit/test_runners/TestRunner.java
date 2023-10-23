@@ -1,11 +1,11 @@
-package junit_test_runners;
+package junit.test_runners;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import demo_junit_tests.DemoAppTest;
-import demo_junit_tests.DogTest;
+import junit.tests.DemoAppTest;
+import junit.tests.DogTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ DogTest.class, DemoAppTest.class })

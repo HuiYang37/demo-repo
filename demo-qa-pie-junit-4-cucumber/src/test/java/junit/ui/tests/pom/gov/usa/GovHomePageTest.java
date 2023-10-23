@@ -1,9 +1,9 @@
-package junit_ui_tests_with_pom.gov.usa;
+package junit.ui.tests.pom.gov.usa;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import junit_ui_tests_with_pom.BaseTest;
+import junit.ui.tests.pom.BaseTest;
 import pages.usa.gov.HomePage;
 
 public class GovHomePageTest extends BaseTest {
