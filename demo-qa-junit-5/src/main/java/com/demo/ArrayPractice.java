@@ -2,15 +2,27 @@ package com.demo;
 
 import java.util.Random;
 
-public class DemoApp {
+public class ArrayPractice {
 
-	public static int findMaxNumFromArray(int[] nums) {
+	public static int findMaxNum(int[] nums) throws Exception {
+		if (nums == null || nums.length == 0)
+			throw new Exception("Cannot find the maximum value in an empty array.");
+		int index = getMaxIndex(nums);
+		return nums[index];
+	}
+
+	public static int getMaxIndex(int[] nums) throws Exception {
+		if (nums == null || nums.length == 0)
+			throw new Exception("Cannot find the index of maximum value in an empty array.");
 		int max = nums[0];
+		int maxIndex = 0;
 		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] > max)
+			if (nums[i] > max) {
 				max = nums[i];
+				maxIndex = i;
+			}
 		}
-		return max;
+		return maxIndex;
 	}
 
 	public static void bubbleSort(int[] nums, boolean asc) {
