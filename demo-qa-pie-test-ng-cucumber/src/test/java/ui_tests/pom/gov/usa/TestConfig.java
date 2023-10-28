@@ -1,6 +1,7 @@
 package ui_tests.pom.gov.usa;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,7 +23,9 @@ public class TestConfig {
 	}
 
 	@AfterMethod
-	public void cleanup() {
+	public void cleanup(ITestResult testResult) {
+		if (!testResult.isSuccess())
+			sj.takeScreenshotOnFailedTest();
 		DriverFactory.resetDriver();
 	}
 

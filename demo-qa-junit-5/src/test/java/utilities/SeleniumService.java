@@ -12,6 +12,7 @@ public class SeleniumService {
 	public static void configDriver(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 	}
 
 	public static WebDriver findDriver(String browserName) {

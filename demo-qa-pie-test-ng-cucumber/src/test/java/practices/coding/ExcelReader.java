@@ -1,4 +1,4 @@
-package coding_practices;
+package practices.coding;
 
 import java.io.FileInputStream;
 

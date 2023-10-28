@@ -1,4 +1,4 @@
-package cucumber_hooks.ui;
+package cucumber.hooks.ui;
 
 import org.openqa.selenium.WebDriver;
 
@@ -29,7 +29,7 @@ public class Hooks {
 	@AfterStep("@stop")
 	public void didStepfail(Scenario scenario) {
 		if (scenario.isFailed()) {
-			sj.takeScreen(scenario);
+			sj.takeScreenshot(scenario);
 		}
 	}
 

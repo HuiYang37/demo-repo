@@ -4,8 +4,8 @@ import static org.testng.Assert.*;
 
 import org.testng.annotations.Test;
 
-import pages.usaa_pages.HomePage;
-import pages.usaa_pages.LogOnPage;
+import pages.usaa.com.HomePage;
+import pages.usaa.com.LogOnPage;
 
 public class HomePageTest extends TestConfig {
 

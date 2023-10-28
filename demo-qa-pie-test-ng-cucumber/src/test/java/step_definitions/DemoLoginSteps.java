@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import pages.demo_pages.InventoryPage;
-import pages.demo_pages.LoginPage;
+import pages.demo.InventoryPage;
+import pages.demo.LoginPage;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 import utilities.SeleniumJob;
