@@ -1,46 +1,34 @@
 package tests.ui;
 
-import java.util.List;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import utilities.SeleniumService;
 import utilities.TestUtils;
-import utilities.readers.ConfigReader;
 
-public class FirefoxTest {
+public class FirefoxTest extends FirefoxBaseTest {
 
-	private WebDriver driver;
-	private String url;
+	private String url = "https://www.homedepot.com/";
 
 	@Test
-	@Disabled("To be fixed later: geckodriver not working.")
-	void runTest() {
-		url = ConfigReader.load("demo").getProperty("url");
-		driver = new FirefoxDriver();
-		SeleniumService.configDriver(driver);
+	void run() {
 		driver.get(url);
-		driver.findElement(By.xpath("//a[text()='Membership']")).click();
-		TestUtils.pause(1);
-		List<WebElement> joinElements = driver.findElements(By.xpath("//a[text()='Join USAA']"));
-		System.out.println("Total <Join> buttons: " + joinElements.size());
+		driver.navigate().refresh();
+		String storeName = driver.findElement(By.cssSelector(".MyStore__store")).getText();
+		System.out.println("Store name: " + storeName);
+		TestUtils.pause(3);
 		System.out.println(driver.getTitle());
 		System.out.println("Test passed.");
 	}
 
-	@AfterEach
-	void endTest() {
-		try {
-			driver.quit();
-		} catch (Exception e) {
-			System.out.println("Something happened after the driver quit.");
-		}
-	}
+//	void closeGooglePrompt() {
+//		try {
+//			By locator = By.id("close");
+//			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+//		} catch (TimeoutException e) {
+//			System.out.println("Failed to close googel prompt.");
+//			System.out.println(e);
+//		}
+//	}
 
 }

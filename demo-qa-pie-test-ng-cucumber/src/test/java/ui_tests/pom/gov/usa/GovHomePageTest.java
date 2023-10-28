@@ -4,7 +4,7 @@ import static org.testng.Assert.*;
 
 import org.testng.annotations.Test;
 
-import pages.usa_gov_pages.HomePage;
+import pages.usa.gov.HomePage;
 
 public class GovHomePageTest extends TestConfig {
 

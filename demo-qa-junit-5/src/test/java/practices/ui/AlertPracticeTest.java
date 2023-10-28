@@ -7,14 +7,17 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import tests.extensions.AfterTestAction;
 import tests.ui.ChromeBaseTest;
 
 @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+@ExtendWith(AfterTestAction.class)
 @Tag("ui")
 public class AlertPracticeTest extends ChromeBaseTest {
 
@@ -26,7 +29,6 @@ public class AlertPracticeTest extends ChromeBaseTest {
 		driver.findElement(By.id("alertButton")).click();
 		Alert alert = sj.stayPut().until(ExpectedConditions.alertIsPresent());
 		alert.accept();
-		System.out.println("Test passed.");
 	}
 
 	@Test
@@ -43,7 +45,6 @@ public class AlertPracticeTest extends ChromeBaseTest {
 				.until(ExpectedConditions.visibilityOfElementLocated(By.id("promptResult")));
 		String successText = promptResult.getText();
 		assertEquals("You entered Jake", successText);
-		System.out.println("Test passed.");
 	}
 
 	@Test
@@ -53,7 +54,6 @@ public class AlertPracticeTest extends ChromeBaseTest {
 		driver.get("https://demoqa.com/modal-dialogs");
 		driver.findElement(By.id("showSmallModal")).click();
 		sj.stayPut().until(ExpectedConditions.visibilityOfElementLocated(By.id("closeSmallModal"))).click();
-		System.out.println("Test passed.");
 	}
 
 }

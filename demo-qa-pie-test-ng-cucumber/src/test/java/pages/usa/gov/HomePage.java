@@ -1,4 +1,4 @@
-package pages.usa_gov_pages;
+package pages.usa.gov;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
