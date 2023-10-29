@@ -1,6 +1,7 @@
 package tests.ui;
 
 import java.io.File;
+import java.time.Duration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import utilities.SeleniumJob;
-import utilities.SeleniumService;
 
 public class ChromeBaseTest {
 
@@ -22,9 +22,11 @@ public class ChromeBaseTest {
 		ChromeOptions options = new ChromeOptions();
 		ChromeDriverService service = new ChromeDriverService.Builder()
 				.usingDriverExecutable(new File("./src/test/resources/drivers/chromedriver/chromedriver.exe")).build();
-		options.setBinary("C:\\Automation\\chrome-win64\\chrome.exe");
+		options.setBinary("C:\\Automation\\chrome\\chrome.exe");
 		driver = new ChromeDriver(service, options);
-		SeleniumService.configDriver(driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		sj = new SeleniumJob(driver);
 	}
 
