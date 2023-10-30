@@ -24,8 +24,10 @@ public class BrowserTest {
 	@ParameterizedTest
 	@ValueSource(strings = { "chrome", "edge" })
 	void runTest(String browserName) {
+		ConfigReader.load("demo");
+		url = ConfigReader.get("url");
+
 		driver = SeleniumService.findDriver(browserName);
-		url = ConfigReader.load("demo").getProperty("url");
 		driver.get(url);
 		driver.findElement(By.xpath("//a[text()='Membership']")).click();
 		TestUtils.pause(2);

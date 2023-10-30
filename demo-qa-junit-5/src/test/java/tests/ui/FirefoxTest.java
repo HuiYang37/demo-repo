@@ -26,7 +26,9 @@ public class FirefoxTest extends FirefoxBaseTest {
 
 	@Test
 	void secondTest() {
-		url = ConfigReader.load("demo").getProperty("url");
+		ConfigReader.load("demo");
+		url = ConfigReader.get("url");
+
 		driver.get(url);
 		driver.findElement(By.xpath("//a[text()='Membership']")).click();
 		TestUtils.pause(2);
