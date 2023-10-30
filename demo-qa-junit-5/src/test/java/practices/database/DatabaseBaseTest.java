@@ -18,7 +18,7 @@ public class DatabaseBaseTest {
 	@BeforeEach
 	void setup() {
 		try {
-			conn = DriverManager.getConnection(DatabaseReader.getURL(), DatabaseReader.getUsername(),
+			conn = DriverManager.getConnection(DatabaseReader.getDatabaseURL(), DatabaseReader.getUsername(),
 					DatabaseReader.getPassword());
 			stmt = conn.createStatement();
 		} catch (SQLException e) {

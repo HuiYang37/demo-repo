@@ -7,12 +7,13 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import utilities.readers.ExcelReader;
+import utilities.readers.DataReader;
 
 public class ReadExcelTest {
 
 	static Stream<HashMap<String, String>> toData() {
-		return ExcelReader.getDataSheet("demo-data", "tests").getStream();
+		DataReader.setDataSheetFromFile("demo-data", "tests");
+		return DataReader.getDataSheet().getStream();
 	}
 
 	@ParameterizedTest

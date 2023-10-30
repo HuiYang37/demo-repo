@@ -1,4 +1,4 @@
-package tests.junit;
+package tests.unit;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import utilities.readers.ConfigReader;
+import utilities.readers.DatabaseReader;
 
 public class DemoTest {
 
@@ -36,10 +36,11 @@ public class DemoTest {
 
 	@BeforeEach
 	void setup() {
+		String fileName = "demo-database";
 		try {
-			conn = DriverManager.getConnection(ConfigReader.load("demo-database").getProperty("url"),
-					ConfigReader.load("demo-database").getProperty("username"),
-					ConfigReader.load("demo-database").getProperty("password"));
+			DatabaseReader.loadDatabase(fileName);
+			conn = DriverManager.getConnection(DatabaseReader.getDatabaseURL(), DatabaseReader.getUsername(),
+					DatabaseReader.getPassword());
 			stmt = conn.createStatement();
 		} catch (SQLException e) {
 			e.printStackTrace();
