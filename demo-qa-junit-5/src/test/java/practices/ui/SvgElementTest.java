@@ -21,6 +21,7 @@ public class SvgElementTest extends ChromeBaseTest {
 	@Test
 	void homePageUpdateZipCodeTest() {
 		driver.get(url);
+		TestUtils.pause(6); // something keep interrupting with the click action
 		sj.clickOnElementLocated(zipCodeText);
 		sj.stayPut().until(ExpectedConditions.attributeContains(zipCodeExpandSvg, "class", "open"));
 		TestUtils.pause(1);
