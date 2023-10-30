@@ -18,7 +18,7 @@ public class DriverFactory {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver/chromedriver.exe");
 			ChromeOptions co = new ChromeOptions();
-			co.setBinary("C:\\Automation\\chrome-win64\\chrome.exe");
+			co.setBinary("C:\\Automation\\chrome\\chrome.exe");
 			driver = new ChromeDriver(co);
 			break;
 		case "firefox":
@@ -41,8 +41,10 @@ public class DriverFactory {
 		try {
 			if (threadLocalDriver == null)
 				threadLocalDriver = new ThreadLocal<WebDriver>();
-			if (threadLocalDriver.get() == null)
+			if (threadLocalDriver.get() == null) {
+				ConfigReader.load();
 				threadLocalDriver.set(findDriver(ConfigReader.getBrowserName()));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,8 @@
 package utilities.api;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -14,6 +17,18 @@ public class Spotify {
 		if (response.getStatusCode() == 200) {
 			response.getBody().prettyPrint();
 		}
+	}
+
+	public static Map<String, String> getTokenResponseContent() {
+		Response response = getTokenResponse();
+		Map<String, String> tokenData = new HashMap<>();
+		String accessToken = "access_token";
+		String tokenType = "token_type";
+		if (response.getStatusCode() == 200) {
+			tokenData.put(accessToken, response.body().jsonPath().get(accessToken));
+			tokenData.put(tokenType, response.body().jsonPath().get(tokenType));
+		}
+		return tokenData;
 	}
 
 	private static Response getTokenResponse() {
