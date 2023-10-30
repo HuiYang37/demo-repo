@@ -23,7 +23,7 @@ public class BrowserTest {
 
 	@ParameterizedTest
 	@ValueSource(strings = { "chrome", "edge" })
-	void runtTest(String browserName) {
+	void runTest(String browserName) {
 		driver = SeleniumService.findDriver(browserName);
 		url = ConfigReader.load("demo").getProperty("url");
 		driver.get(url);

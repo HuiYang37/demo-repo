@@ -1,5 +1,6 @@
-configs/
 target/
+secrets/
+configs/
 
 # Eclipse prefs
 .settings/

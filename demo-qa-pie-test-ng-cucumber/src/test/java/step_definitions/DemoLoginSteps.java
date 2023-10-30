@@ -7,18 +7,19 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.demo.InventoryPage;
 import pages.demo.LoginPage;
 import utilities.ConfigReader;
 import utilities.DriverFactory;
 import utilities.SeleniumJob;
-import utilities.TestUtils;
 
 public class DemoLoginSteps {
 
 	WebDriver driver = DriverFactory.getDriver();
-	SeleniumJob ss = new SeleniumJob(driver);
+	SeleniumJob sj = new SeleniumJob(driver);
 	LoginPage loginPage = new LoginPage(driver);
 	InventoryPage inventoryPage = new InventoryPage(driver);
 
@@ -30,8 +31,9 @@ public class DemoLoginSteps {
 
 	@When("user enters username and password")
 	public void user_enters_username_and_password() {
-		String username = ConfigReader.getUsername();
-		String password = ConfigReader.getPassword();
+		ConfigReader.load("credentials");
+		String username = ConfigReader.get("username");
+		String password = ConfigReader.get("password");
 		loginPage.enterUsername(username);
 		loginPage.enterPassword(password);
 	}
@@ -47,8 +49,6 @@ public class DemoLoginSteps {
 
 	@When("user clicks on [Login] button")
 	public void user_clicks_on_login_button() {
-		if (ConfigReader.isDemo())
-			TestUtils.pause(ConfigReader.getDemoWaitTime());
 		loginPage.clickOnLogin();
 	}
 

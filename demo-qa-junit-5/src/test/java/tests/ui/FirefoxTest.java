@@ -1,9 +1,13 @@
 package tests.ui;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import utilities.TestUtils;
+import utilities.readers.ConfigReader;
 
 public class FirefoxTest extends FirefoxBaseTest {
 
@@ -20,15 +24,15 @@ public class FirefoxTest extends FirefoxBaseTest {
 		System.out.println("Test passed.");
 	}
 
-//	void closeGooglePrompt() {
-//		try {
-//			By locator = By.id("close");
-//			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
-//		} catch (TimeoutException e) {
-//			System.out.println("Failed to close googel prompt.");
-//			System.out.println(e);
-//		}
-//	}
+	@Test
+	void secondTest() {
+		url = ConfigReader.load("demo").getProperty("url");
+		driver.get(url);
+		driver.findElement(By.xpath("//a[text()='Membership']")).click();
+		TestUtils.pause(2);
+		List<WebElement> joinElements = driver.findElements(By.xpath("//a[text()='JOIN USAA']"));
+		System.out.println("Total <Join> buttons: " + joinElements.size());
+		System.out.println(driver.getTitle());
+	}
 
 }

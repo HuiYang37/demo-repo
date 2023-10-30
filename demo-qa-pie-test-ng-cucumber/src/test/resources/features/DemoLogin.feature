@@ -1,7 +1,7 @@
 @demo @login
 Feature: Login
 
-  @ui @smoke @hero
+  @ui @smoke
   Scenario: Positive Test
     Given user is on the login page
     When user enters username and password
