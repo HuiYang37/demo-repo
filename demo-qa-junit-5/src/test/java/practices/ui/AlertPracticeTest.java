@@ -7,19 +7,16 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import tests.extensions.AfterTestAction;
-import tests.ui.ChromeBaseTest;
+import tests.ui.ChromeBaseTestWithReports;
 
 @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
-@ExtendWith(AfterTestAction.class)
 @Tag("ui")
-public class AlertPracticeTest extends ChromeBaseTest {
+public class AlertPracticeTest extends ChromeBaseTestWithReports {
 
 	@Test()
 	@Order(0)
