@@ -10,12 +10,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import tests.extensions.AfterTestAction;
+import tests.extensions.TestReportListener;
 import utilities.SeleniumService;
 import utilities.TestUtils;
 import utilities.readers.ConfigReader;
 
-@ExtendWith(AfterTestAction.class)
+@ExtendWith(TestReportListener.class)
 public class BrowserTest {
 
 	private WebDriver driver;

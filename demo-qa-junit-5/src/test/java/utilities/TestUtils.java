@@ -1,7 +1,7 @@
 package utilities;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 public class TestUtils {
 
@@ -14,8 +14,15 @@ public class TestUtils {
 	}
 
 	public static String getTimestamp() {
-		long tsNumValue = Timestamp.valueOf(LocalDateTime.now()).getTime();
-		return String.valueOf(tsNumValue);
+		return String.valueOf(System.currentTimeMillis());
+	}
+
+	public static void logPass(ExtentTest test) {
+		test.log(Status.PASS, "Test passed.");
+	}
+
+	public static void logFail(ExtentTest test) {
+		test.log(Status.FAIL, "Test failed.");
 	}
 
 }

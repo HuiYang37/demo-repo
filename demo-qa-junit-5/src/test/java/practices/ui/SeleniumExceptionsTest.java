@@ -9,9 +9,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import tests.ui.BaseTest;
+import tests.ui.ChromeBaseTestWithReports;
 
-public class SeleniumExceptionsTest extends BaseTest {
+public class SeleniumExceptionsTest extends ChromeBaseTestWithReports {
 
 	@Test
 	void runElementClickInterceptedExceptionTest() {

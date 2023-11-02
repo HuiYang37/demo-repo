@@ -7,10 +7,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import tests.extensions.AfterTestAction;
+import tests.extensions.TestReportListener;
 import utilities.TestUtils;
 
-@ExtendWith(AfterTestAction.class)
+@ExtendWith(TestReportListener.class)
 public class HeadlessTest extends HeadlessChromeBaseTest {
 
 	@Test
