@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import utilities.readers.DataReader;
@@ -25,6 +26,12 @@ public class ReadExcelTest {
 			System.out.println(key + ": " + value);
 		}
 		System.out.println();
+	}
+
+	@ParameterizedTest(name = "[{index}] {arguments}")
+	@CsvFileSource(resources = "/test_data/Example.csv", useHeadersInDisplayName = true)
+	void testWithCsvFileSourceAndHeaders(int studentID, String fullName, int sat_score) {
+		System.out.println(String.format("%d, %s, %d", studentID, fullName, sat_score));
 	}
 
 }
