@@ -17,4 +17,8 @@ public class StringPractice {
 		return text.charAt(text.length() - 1) + getReverseText(text.substring(0, text.length() - 1));
 	}
 
+	public static void printUpperCase(String text) {
+		System.out.println(text.toUpperCase());
+	}
+
 }

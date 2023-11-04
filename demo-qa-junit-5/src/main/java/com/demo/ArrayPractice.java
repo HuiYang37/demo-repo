@@ -1,8 +1,13 @@
 package com.demo;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class ArrayPractice {
+
+	public static void printArray(int[] nums) {
+		System.out.println(Arrays.toString(nums));
+	}
 
 	public static int findMaxNum(int[] nums) throws Exception {
 		if (nums == null || nums.length == 0)
@@ -23,6 +28,17 @@ public class ArrayPractice {
 			}
 		}
 		return maxIndex;
+	}
+
+	public static int[] mergeTwoArrays(int[] numsA, int[] numsB) {
+		int[] result = new int[numsA.length + numsB.length];
+		for (int i = 0; i < numsA.length; i++) {
+			result[i] = numsA[i];
+		}
+		for (int i = numsA.length, j = 0; i < result.length; i++, j++) {
+			result[i] = numsB[j];
+		}
+		return result;
 	}
 
 	public static void bubbleSort(int[] nums, boolean asc) {
