@@ -36,12 +36,10 @@ public class SeleniumJob {
 		return act;
 	}
 
-	public void takeScreenshot(Scenario scenario) {
-		String name = scenario.getName().replace(" ", "_") + "_" + scenario.getLine();
+	public void takeScreenshotOnFailed(Scenario scenario) {
+		String name = scenario.getName().replace(" ", "-") + "-" + scenario.getLine();
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String text = scenario.getUri().getPath();
-		String fileName = text.substring(text.lastIndexOf("/") + 1).replace(".feature", "");
-		String filePath = String.format("./src/test/resources/failed_tests/%s_%s_%s.png", fileName, name,
+		String filePath = String.format("./src/test/resources/failed-cucumber-test-screenshots/%s-%s.png", name,
 				TestUtils.getTimestamp());
 		try {
 			FileUtils.copyFile(screenshotFile, new File(filePath));
@@ -53,7 +51,8 @@ public class SeleniumJob {
 	public void takeScreenshotOnFailedTest() {
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String name = "Failed_Test";
-		String imageFilePath = String.format("./src/test/resources/failed_tests/%s_%s.png", name, TestUtils.getTimestamp());
+		String imageFilePath = String.format("./src/test/resources/failed_tests/%s_%s.png", name,
+				TestUtils.getTimestamp());
 		try {
 			FileUtils.copyFile(screenshotFile, new File(imageFilePath));
 		} catch (IOException e) {
