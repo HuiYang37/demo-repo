@@ -153,6 +153,7 @@
 			</plugin>
 
 			<plugin>
+				<!-- supports up to java-11 -->
 				<groupId>net.masterthought</groupId>
 				<artifactId>maven-cucumber-reporting</artifactId>
 				<version>5.7.7</version>
@@ -164,12 +165,13 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<projectName>cucumber-jvm-example</projectName>
+							<!-- custom name -->
+							<projectName>Amazing Grace</projectName>
 							<!-- output directory for the generated report -->
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<jsonFiles>
 								<!-- supports wildcard or name pattern -->
-								<param>**/target/json-reports/cucumber.json</param>
+								<param>**/json-reports/cucumber.json</param>
 							</jsonFiles>
 						</configuration>
 					</execution>
