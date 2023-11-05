@@ -6,6 +6,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import utilities.ConfigReader;
 import utilities.DriverFactory;
 import utilities.SeleniumJob;
 
@@ -26,10 +27,12 @@ public class Hooks {
 		DriverFactory.resetDriver();
 	}
 
-	@AfterStep("@stop")
-	public void whenStepFailed(Scenario scenario) {
-		if (scenario.isFailed()) {
-			sj.takeScreenshot(scenario);
+	@AfterStep()
+	public void onFailed(Scenario scenario) {
+		ConfigReader.load();
+		boolean isScreenshotModeOn = Boolean.valueOf(ConfigReader.get("screenshot"));
+		if (scenario.isFailed() && isScreenshotModeOn) {
+			sj.takeScreenshotOnFailed(scenario);
 		}
 	}
 

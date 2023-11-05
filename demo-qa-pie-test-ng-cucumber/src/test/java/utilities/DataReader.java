@@ -6,7 +6,7 @@ import pojos.DataSheet;
 
 public class DataReader extends Reader {
 
-	private final static String DATA_DIR_PATH = "./src/test/resources/test_data/";
+	private final static String DATA_DIR_PATH = "./src/test/resources/test-data/";
 	private static DataSheet dataSheet;
 
 	public static DataSheet getDataSheet() {

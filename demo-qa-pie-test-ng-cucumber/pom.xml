@@ -16,11 +16,11 @@
 	<properties>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<rest-assured.version>5.3.2</rest-assured.version>
-
 		<maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+
+		<rest-assured.version>5.3.2</rest-assured.version>
 
 	</properties>
 
@@ -141,6 +141,8 @@
 				<version>3.1.2</version>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
+
+					<!-- testng parallelism -->
 					<properties>
 						<property>
 							<name>dataproviderthreadcount</name>
@@ -148,6 +150,32 @@
 						</property>
 					</properties>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<!-- supports up to java-11 -->
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>5.7.7</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<!-- custom name -->
+							<projectName>Amazing Grace</projectName>
+							<!-- output directory for the generated report -->
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<jsonFiles>
+								<!-- supports wildcard or name pattern -->
+								<param>**/json-reports/cucumber.json</param>
+							</jsonFiles>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>
