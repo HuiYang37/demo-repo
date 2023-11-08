@@ -14,6 +14,7 @@ public class SvgElementTest extends ChromeBaseTest {
 	private String url = "https://www.homedepot.com/";
 	private By zipCodeText = By.className("zipCode");
 	private By zipCodeExpandSvg = By.xpath("//*[local-name()='svg' and contains(@class, 'deliveryZip')]");
+	private By dismissAccountReminder = By.xpath("//*[local-name()='svg' and @id='dismissReminder']");
 	private By zipCodeInput = By.id("deliveryZipInput");
 	private By deliveryZipUpdateButton = By.id("deliveryZipUpdateButton");
 	private String zipCode = "20112";
@@ -21,7 +22,7 @@ public class SvgElementTest extends ChromeBaseTest {
 	@Test
 	void homePageUpdateZipCodeTest() {
 		driver.get(url);
-		TestUtils.pause(6); // something keep interrupting with the click action
+		sj.clickOnElementLocated(dismissAccountReminder);
 		sj.clickOnElementLocated(zipCodeText);
 		sj.stayPut().until(ExpectedConditions.attributeContains(zipCodeExpandSvg, "class", "open"));
 		TestUtils.pause(1);
