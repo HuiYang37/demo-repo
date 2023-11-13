@@ -27,7 +27,7 @@ public class RelativeLocatorTest extends BaseTest {
 	void costcoUpdateZipCodeTest() {
 		driver.get(costcoURL);
 		driver.findElement(deliveryZipCodeButtonLocator).click();
-		sj.stayPut().until(ExpectedConditions.presenceOfElementLocated(popUpIdLocator));
+		sj.getWait().until(ExpectedConditions.presenceOfElementLocated(popUpIdLocator));
 		driver.findElement(zipCodeInputLocator).sendKeys(zipCode);
 		TestUtils.pause(1);
 		driver.findElement(updateZipCodeButtonLocator).click();

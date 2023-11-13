@@ -24,7 +24,7 @@ public class AlertPracticeTest extends ChromeBaseTestWithReports {
 		System.out.println(0);
 		driver.get("https://demoqa.com/alerts");
 		driver.findElement(By.id("alertButton")).click();
-		Alert alert = sj.stayPut().until(ExpectedConditions.alertIsPresent());
+		Alert alert = sj.getWait().until(ExpectedConditions.alertIsPresent());
 		alert.accept();
 	}
 
@@ -34,11 +34,11 @@ public class AlertPracticeTest extends ChromeBaseTestWithReports {
 		System.out.println(1);
 		driver.get("https://demoqa.com/alerts");
 		driver.findElement(By.id("promtButton")).click();
-		sj.stayPut().until(ExpectedConditions.alertIsPresent());
+		sj.getWait().until(ExpectedConditions.alertIsPresent());
 		Alert alert = driver.switchTo().alert();
 		alert.sendKeys("Joe");
 		alert.accept();
-		WebElement promptResult = sj.stayPut()
+		WebElement promptResult = sj.getWait()
 				.until(ExpectedConditions.visibilityOfElementLocated(By.id("promptResult")));
 		String successText = promptResult.getText();
 		assertEquals("You entered Jake", successText);
@@ -50,7 +50,7 @@ public class AlertPracticeTest extends ChromeBaseTestWithReports {
 		System.out.println(2);
 		driver.get("https://demoqa.com/modal-dialogs");
 		driver.findElement(By.id("showSmallModal")).click();
-		sj.stayPut().until(ExpectedConditions.visibilityOfElementLocated(By.id("closeSmallModal"))).click();
+		sj.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.id("closeSmallModal"))).click();
 	}
 
 }

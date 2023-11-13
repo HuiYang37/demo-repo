@@ -29,7 +29,7 @@ public class ReadExcelTest {
 	}
 
 	@ParameterizedTest(name = "[{index}] {arguments}")
-	@CsvFileSource(resources = "/test_data/Example.csv", useHeadersInDisplayName = true)
+	@CsvFileSource(resources = "/test-data/Example.csv", useHeadersInDisplayName = true)
 	void testWithCsvFileSourceAndHeaders(int studentID, String fullName, int sat_score) {
 		System.out.println(String.format("%d, %s, %d", studentID, fullName, sat_score));
 	}

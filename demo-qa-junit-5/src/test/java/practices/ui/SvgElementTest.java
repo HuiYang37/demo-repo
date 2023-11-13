@@ -24,7 +24,7 @@ public class SvgElementTest extends ChromeBaseTest {
 		driver.get(url);
 		sj.clickOnElementLocated(dismissAccountReminder);
 		sj.clickOnElementLocated(zipCodeText);
-		sj.stayPut().until(ExpectedConditions.attributeContains(zipCodeExpandSvg, "class", "open"));
+		sj.getWait().until(ExpectedConditions.attributeContains(zipCodeExpandSvg, "class", "open"));
 		TestUtils.pause(1);
 		driver.findElement(zipCodeInput).sendKeys(zipCode);
 		TestUtils.pause(1);

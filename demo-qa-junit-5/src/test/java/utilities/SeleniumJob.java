@@ -26,12 +26,12 @@ public class SeleniumJob {
 		act = new Actions(driver);
 	}
 
-	public WebDriverWait stayPut() {
+	public WebDriverWait getWait() {
 		return wait;
 	}
 
-	public void stayPutForDisplayElementLocated(By locator) {
-		stayPut().until(ExpectedConditions.visibilityOfElementLocated(locator));
+	public void waitForDisplayElementLocated(By locator) {
+		getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 	public Actions mouse() {
@@ -43,7 +43,7 @@ public class SeleniumJob {
 	}
 
 	public boolean containsElement(By locator) {
-		wait = new WebDriverWait(this.driver, Duration.ofSeconds(2));
+		wait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
 		try {
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			return true;
@@ -54,7 +54,7 @@ public class SeleniumJob {
 
 	public void clickOnElementLocated(By locator) {
 		wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
-		if (containsElement(locator) && stayPut()
+		if (containsElement(locator) && getWait()
 				.until(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(locator))))) {
 			mouse().moveToElement(driver.findElement(locator)).click().build().perform();
 		}
@@ -62,8 +62,9 @@ public class SeleniumJob {
 
 	public void takeScreenshotOnFailedTest() {
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String name = "Failed_Test";
-		String filePath = String.format("./src/test/resources/failed_tests/%s_%s.png", name, TestUtils.getTimestamp());
+		String name = "Failed-Test";
+		String filePath = String.format("./src/test/resources/failed-test-images/%s-%s.png", name,
+				TestUtils.getTimestamp());
 		try {
 			FileUtils.copyFile(screenshotFile, new File(filePath));
 		} catch (IOException e) {

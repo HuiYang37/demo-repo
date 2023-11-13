@@ -9,7 +9,7 @@ import utilities.SeleniumJob;
 
 public class InventoryPage {
 
-	private static final String PAGE_URL = "https://www.saucedemo.com/";
+	private static final String PAGE_URL = "https://www.saucedemo.com/inventory.html";
 	private WebDriverWait wait;
 	private SeleniumJob sj;
 
