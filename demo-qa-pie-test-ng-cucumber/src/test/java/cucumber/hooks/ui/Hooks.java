@@ -20,6 +20,7 @@ public class Hooks {
 		DriverFactory.initDriver();
 		driver = DriverFactory.getDriver();
 		sj = new SeleniumJob(driver);
+		ConfigReader.load();
 	}
 
 	@After("@ui")
